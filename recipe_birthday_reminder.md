@@ -91,7 +91,7 @@ class BirthdayReminder:
 
     '''
     def list_soon_birthdays(self):
-    # Parameters: name (string), newname (string)
+    # Parameters: none
     # Returns:
     # A string of the form "the following names have a birthday soon: "
     # Side-effects
@@ -110,6 +110,7 @@ class BirthdayReminder:
     #none
     pass # No code here yet
 
+'''optional'''
 
     '''So I can keep track of cards sent and to be sent
     I want to be able to mark a birthday card for a year as "done"
