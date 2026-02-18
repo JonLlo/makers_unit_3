@@ -68,13 +68,21 @@ class BirthdayReminder():
         reminder_list_extracted = self.list_soon_birthdays()
         print(f'xyz {reminder_list_extracted}')
         for name in reminder_list_extracted:
-            dob = datetime.strptime(self.birthday_dict[name], '%Y-%m-%d').date()
+            dob = self.birthday_dict[name]
             today = date.today()
             age = today.year - dob.year
             if (today.month, today.day) < (dob.month, dob.day):
                 age = age - 1
                 self.final_dict[name] = age
-            print(self.final_dict)
+        final_str = 'The following people are going to turn the following ages soon:'
+        for key, value in self.final_dict.items():
+            final_str = final_str + (f'\n{key}: {value}')
+        
+
+        
+        print(final_str)
+        print(self.final_dict)
+        return final_str
             
 
 
@@ -86,9 +94,9 @@ class BirthdayReminder():
 
         
 birthday_reminder = BirthdayReminder()
-birthday_reminder.update("Tony", "1998-02-21") #should pass
-birthday_reminder.update("Alex", "1998-02-22") #should pass
-birthday_reminder.update("Jonny", "2026-02-24") #should pass
+birthday_reminder.update("Tony", "1991-02-21") #should pass
+birthday_reminder.update("Alex", "1992-02-22") #should pass
+birthday_reminder.update("Jonny", "1998-02-24") #should pass
 birthday_reminder.update("Toy", "1998-11-12") #should fail
 birthday_reminder.update("ny", "1998-11-12") #should fail
 birthday_reminder.list_soon_birthdays()

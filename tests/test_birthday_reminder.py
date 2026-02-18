@@ -66,14 +66,15 @@ So I can buy age-appropriate birthday cards
 I want to calculate the upcoming ages for friends with birthdays (that are soon?)
 '''
 def test_age():
-    BirthdayReminder = BirthdayReminder()
     birthday_reminder = BirthdayReminder()
-    birthday_reminder.update("Tony", "1998-02-21") #pass
-    birthday_reminder.update("James", "1997-02-22") #pass
+    birthday_reminder = BirthdayReminder()
+    birthday_reminder.update("Tony", "1991-02-21") #should pass
+    birthday_reminder.update("Alex", "1992-02-22") #should pass
+    birthday_reminder.update("Jonny", "1998-02-24") #should pass
     birthday_reminder.update("Sally", "1998-11-12") #fail
     birthday_reminder.update("Tim", "1998-02-15") #fail
     result = birthday_reminder.age()
-    assert result == [["Tony", 28]["James", 29]]
+    assert result == "The following people are going to turn the following ages soon:\nTony: 34\nAlex: 33\nJonny: 27"
 
 
 '''
